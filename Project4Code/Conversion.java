@@ -11,7 +11,7 @@ public class Conversion   {
      * @param integer variable "roman" is the number to be converted
      * @return String variable "result" here the converted version of roman is stored
      */
-    public static String Convert(int userInput){
+    public static String intToRomanNumString(int userInput){
         String convertedResult = "";
         int originalUserInput = userInput;  
         do {

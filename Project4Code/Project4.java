@@ -19,7 +19,7 @@ public class Project4
                 if((roman < 1) || (roman > 3999)) {
                     System.out.println("Sorry, the number is outside the range.");
                 }else if((roman >= 1) && (roman <= 3999)) {
-                    System.out.println(Conversion.Convert(roman));   
+                    System.out.println(Conversion.intToRomanNumString(roman));   
                 }   
             System.out.print("Do you want to try again? Press Y for yes or N for no: ");
             response = keyboard.nextLine().toUpperCase();
