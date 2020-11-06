@@ -11,112 +11,112 @@ public class Conversion   {
      * @param integer variable "roman" is the number to be converted
      * @return String variable "result" here the converted version of roman is stored
      */
-    public static String Convert(int roman){
+    public static String Convert(int userInput){
         String result = "";
-        int currentNum = roman;  
+        int currentNum = userInput;  
         do {
-           if (roman >= 1000)    {
+           if (userInput >= 1000)    {
                result += "M";
-               roman -= 1000;
+               userInput -= 1000;
            }
-           else if(roman >= 900) {
+           else if(userInput >= 900) {
                result += "CM";
-               roman -= 900;
+               userInput -= 900;
            }
-           else if(roman >= 800) {
+           else if(userInput >= 800) {
                result += "DCCC";
-               roman -= 800;
+               userInput -= 800;
            }
-           else if(roman >= 700) {
+           else if(userInput >= 700) {
                result += "DCC";
-               roman -= 700;
+               userInput -= 700;
            }
-           else if(roman >= 600) {
+           else if(userInput >= 600) {
                result += "DC";
-               roman -= 600;
+               userInput -= 600;
            }
-           else if(roman >= 500) {    
+           else if(userInput >= 500) {    
                result += "D";
-               roman -= 500;
+               userInput -= 500;
            }
-           else if(roman >= 400) {
+           else if(userInput >= 400) {
                result += "CD";
-               roman -= 400;
+               userInput -= 400;
            }
-           else if(roman >= 300) {
+           else if(userInput >= 300) {
                result += "CCC";
-               roman -= 300;
+               userInput -= 300;
            }
-           else if(roman >= 200) {
+           else if(userInput >= 200) {
                result += "CC";
-               roman -= 200;
+               userInput -= 200;
            }
-           else if(roman >= 100) {
+           else if(userInput >= 100) {
                result += "C";
-               roman -= 100;
+               userInput -= 100;
            }
-           else if(roman >= 90) {
+           else if(userInput >= 90) {
                result += "XC";
-               roman -= 90;
+               userInput -= 90;
            }
-           else if(roman >= 80) {
+           else if(userInput >= 80) {
                result += "LXXX";
-               roman -= 80;
+               userInput -= 80;
            }
-           else if(roman >= 70) {
+           else if(userInput >= 70) {
                result += "LXX";
-               roman -= 70;
+               userInput -= 70;
            }
-           else if(roman >= 60) {
+           else if(userInput >= 60) {
                result += "LX";
-               roman -= 60;
+               userInput -= 60;
            }
-           else if(roman >= 50) {
+           else if(userInput >= 50) {
                result += "L";
-               roman -= 50;
-           }else if(roman >= 40) {
+               userInput -= 50;
+           }else if(userInput >= 40) {
                result += "XL";
-               roman -= 40;
+               userInput -= 40;
            }
-           else if(roman >= 10) {
+           else if(userInput >= 10) {
                result += "X";
-               roman -= 10;
+               userInput -= 10;
            }
-           else if(roman == 9) {
+           else if(userInput == 9) {
                result += "IX";
-               roman -= 9;
-           }else if(roman == 8) {
+               userInput -= 9;
+           }else if(userInput == 8) {
                result += "VIII";
-               roman -= 8;
+               userInput -= 8;
            }
-           else if(roman == 7) {
+           else if(userInput == 7) {
                result += "VII";
-               roman -= 7;
+               userInput -= 7;
            }
-           else if(roman == 6) {
+           else if(userInput == 6) {
                result += "VI";
-               roman -= 6;
+               userInput -= 6;
            }
-           else if(roman == 5) {
+           else if(userInput == 5) {
                result += "V";
-               roman -= 5;
+               userInput -= 5;
            }
-           else if(roman == 4) {
+           else if(userInput == 4) {
                result += "IV";
-               roman -= 4;
-           }else if(roman == 3) {
+               userInput -= 4;
+           }else if(userInput == 3) {
                result += "III";
-               roman -= 3;
+               userInput -= 3;
            } 
-           else if(roman == 2) {
+           else if(userInput == 2) {
                result += "II";
-               roman -= 2;
+               userInput -= 2;
            }
-           else if(roman == 1) {
+           else if(userInput == 1) {
                result += "I";
-               roman -= 1;
+               userInput -= 1;
            }
-        } while (roman > 0);
+        } while (userInput > 0);
         return (currentNum + " in Roman numerals is " + result);  
     }
 }    
