@@ -1,15 +1,15 @@
 /**
- * A conversion class with a simple Roman Numeral Conversion method.
+ * The Conversion class that contains the Integer to Roman Numeral Conversion method.
  *
  * @author Andrew Sychtysz
- * @version 3/29/2019
+ * @version 11/6/2020
  */
 public class Conversion   {
     /**
      * This method is used to convert an integer and return it's value
      * as a Roman Numeral in a string.
-     * @param roman Number to be converted
-     * @return result This returns the Roman Numeral String
+     * @param integer variable "roman" is the number to be converted
+     * @return String variable "result" here the converted version of roman is stored
      */
     public static String Convert(int roman){
         String result = "";
