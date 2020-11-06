@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Conversion
+comment0.text=\r\n\ A\ conversion\ class\ with\ a\ simple\ Roman\ Numeral\ Conversion\ method.\r\n\r\n\ @author\ Andrew\ Sychtysz\r\n\ @version\ 3/29/2019\r\n
+comment1.params=roman
+comment1.target=java.lang.String\ Convert(int)
+comment1.text=\r\n\ This\ method\ is\ used\ to\ convert\ an\ integer\ and\ return\ it's\ value\r\n\ as\ a\ Roman\ Numeral\ in\ a\ string.\r\n\ @param\ roman\ Number\ to\ be\ converted\r\n\ @return\ result\ This\ returns\ the\ Roman\ Numeral\ String\r\n
+numComments=2
