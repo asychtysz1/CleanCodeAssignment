@@ -116,7 +116,7 @@ public class Conversion   {
         	   convertedResult += "I";
                userInput -= 1;
            }
-        } while (userInput > 0);
-        return (originalUserInput + " in Roman numerals is " + convertedResult);  
+        } while (userInput > 0); 
+        return (originalUserInput + " in Roman numerals is " + convertedResult);  // Return statement w/ convertedResult.
     }
 }    
