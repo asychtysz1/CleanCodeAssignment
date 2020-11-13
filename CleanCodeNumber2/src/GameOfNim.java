@@ -14,8 +14,8 @@ public class GameOfNim
 {										// Instance Variables
     Random generator = new Random();				
     Scanner keyboard = new Scanner(System.in);
-    boolean compFirst = generator.nextBoolean();
-    boolean compMario = generator.nextBoolean(); 
+    boolean compFirst = generator.nextBoolean();	// Boolean to see if the Computer Player goes first or not
+    boolean compMario = generator.nextBoolean(); 	// Boolean to see if the Computer Player is Mario or not
     private int pileSize;
     private int roundNumber = 1;	    // Static Variables for Record Calculations
     private static int gameTotalCount = 0;
@@ -295,7 +295,7 @@ public class GameOfNim
                     humanLosses++;                    
                 }
             }
-        } else {				// Mario Loses
+        } else {	// Mario Loses
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("Mario screams: Wahhhahhhhhhhhhahaaaaaaaaaah! ");
             System.out.println("----------------------------------------------------------------------------");
@@ -313,7 +313,7 @@ public class GameOfNim
      * reaction to the results of the game.
      */
     public void humanPlayer() {
-        if (pileSize > 1) {	// Human Regular Turn
+        if (pileSize > 1) {		// Human Regular Turn
             int dumbRange = (pileSize / 2);
             System.out.println("----------------------------------------------------------------------------");
             System.out.print("YOUR TURN! Please enter an amount of marbles in between 1 - " + dumbRange + ": ");
