@@ -16,7 +16,7 @@ public class GameOfNim
     Scanner keyboard = new Scanner(System.in);
     boolean compFirst = generator.nextBoolean();	// Boolean to see if the Computer Player goes first or not
     boolean compMario = generator.nextBoolean(); 	// Boolean to see if the Computer Player is Mario or not
-    private int pileSize;
+    private int startingPileSize;
     private int roundNumber = 1;	    // Static Variables for Record Calculations
     private static int gameTotalCount = 0;
     private static int marioWins = 0;
@@ -33,7 +33,7 @@ public class GameOfNim
      */
     public GameOfNim(int min, int max) {
         int range = (max - min);
-        pileSize = generator.nextInt(range + 1) + min;
+        startingPileSize = generator.nextInt(range + 1) + min;
     }
 
     /**
@@ -44,14 +44,14 @@ public class GameOfNim
     	gameTotalCount++;
         System.out.println("Game begins...");
         System.out.println("----------------------------------------------------------------------------");
-        System.out.println("Initially there are " + pileSize + " marbles in the pile");
+        System.out.println("Initially there are " + startingPileSize + " marbles in the pile");
         System.out.println("----------------------------------------------------------------------------");
         do {
             if (compMario) {
                 if (compFirst) {
                     System.out.println(" ");
                     System.out.println("----------------------------------------------------------------------------"); 
-                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + pileSize);
+                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println(" ");
                     mario();
@@ -60,7 +60,7 @@ public class GameOfNim
                 } else {
                     System.out.println(" ");
                     System.out.println("----------------------------------------------------------------------------"); 
-                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + pileSize);
+                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println(" ");                    
                     humanPlayer();
@@ -71,7 +71,7 @@ public class GameOfNim
                 if (compFirst) {
                     System.out.println(" ");
                     System.out.println("----------------------------------------------------------------------------"); 
-                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + pileSize);
+                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println(" ");                    
                     luigi();
@@ -80,7 +80,7 @@ public class GameOfNim
                 } else {
                     System.out.println(" ");
                     System.out.println("----------------------------------------------------------------------------"); 
-                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + pileSize);
+                    System.out.println("Round: " + roundNumber + " Current size of Marbles: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println(" ");                    
                     humanPlayer();
@@ -88,7 +88,7 @@ public class GameOfNim
                     roundNumber++;
                 }                    
             }
-        } while(pileSize > 1);
+        } while(startingPileSize > 1);
     }
 
     /**
@@ -96,25 +96,25 @@ public class GameOfNim
      * Also, choosing what his reaction is to the decision of victory. If he wins or loses, he will respond in a certain way.
     */
     public void luigi() {
-        if (pileSize > 1) {
+        if (startingPileSize > 1) {
             System.out.println(" ");
-            int dumbRange = (pileSize / 2);
+            int dumbRange = (startingPileSize / 2);
             int amount = generator.nextInt(dumbRange) + 1;          
-            pileSize -= amount;
-            if (pileSize == 1) {   // If Luigi Wins
+            startingPileSize -= amount;
+            if (startingPileSize == 1) {   // If Luigi Wins
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("LUIGI'S  TURN: Luigi reaches into the pile and grabs " + amount + " marble(s).");
                 System.out.println("----------------------------------------------------------------------------");
-                System.out.println("Luigi took the marbles. Current size of pile : " + pileSize);
+                System.out.println("Luigi took the marbles. Current size of pile : " + startingPileSize);
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println(" ");
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("");
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("YOU HAVE NO CHOICE BUT TO TAKE THE LAST MARBLE ");
-                pileSize -= 1;
+                startingPileSize -= 1;
                 System.out.println("----------------------------------------------------------------------------");
-                System.out.println("You took " + 1 + " marble(s), from the pile. " + "Current number of marbles: " + pileSize);
+                System.out.println("You took " + 1 + " marble(s), from the pile. " + "Current number of marbles: " + startingPileSize);
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println(" ");
                 System.out.println("----------------------------------------------------------------------------");
@@ -144,7 +144,7 @@ public class GameOfNim
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("Luigi reaches into the pile and grabs " + amount + " marble(s)."); 
                 System.out.println("----------------------------------------------------------------------------");
-                System.out.println("Luigi took the marbles. Current size of pile: " + pileSize );
+                System.out.println("Luigi took the marbles. Current size of pile: " + startingPileSize );
                 System.out.println("----------------------------------------------------------------------------");
             	}
         	} else {			  // Luigi Loses
@@ -162,114 +162,114 @@ public class GameOfNim
      * Also, choosing what his reaction is to the decision of victory. If he wins or loses, he will respond in a certain way.
      */
     public void mario() {
-        if (pileSize > 1) {
+        if (startingPileSize > 1) {
             int amount;
-            int currentPileSize = pileSize;
-            if (pileSize == 3 || pileSize == 7 || pileSize == 15 || pileSize == 31 || pileSize == 63) {
-                amount = generator.nextInt((pileSize / 2)) + 1;
-                pileSize -= amount;
+            int currentPileSize = startingPileSize;
+            if (startingPileSize == 3 || startingPileSize == 7 || startingPileSize == 15 || startingPileSize == 31 || startingPileSize == 63) {
+                amount = generator.nextInt((startingPileSize / 2)) + 1;
+                startingPileSize -= amount;
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("MARIO'S TURN                                   ");
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                 System.out.println("----------------------------------------------------------------------------");
-                System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                 System.out.println("----------------------------------------------------------------------------");
             }
             else {
-                if (pileSize > 63) {
-                    pileSize = 63;
-                    amount = (currentPileSize - pileSize);
+                if (startingPileSize > 63) {
+                	startingPileSize = 63;
+                    amount = (currentPileSize - startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN                                   ");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                 }
-                else if (pileSize > 48) {
-                    pileSize = 48;
-                    amount = (currentPileSize - pileSize);
+                else if (startingPileSize > 48) {
+                	startingPileSize = 48;
+                    amount = (currentPileSize - startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN                                   ");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                 }
-                else if (pileSize > 35) {
-                    pileSize = 35;
-                    amount = (currentPileSize - pileSize);
+                else if (startingPileSize > 35) {
+                	startingPileSize = 35;
+                    amount = (currentPileSize - startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");                    
                 }
-                else if (pileSize > 24) {
-                    pileSize = 24;
-                    amount = (currentPileSize - pileSize);
+                else if (startingPileSize > 24) {
+                	startingPileSize = 24;
+                    amount = (currentPileSize - startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN                                   ");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");                    
                 }
-                else if (pileSize > 15) {
-                    pileSize = 15;
-                    amount = (currentPileSize - pileSize);
+                else if (startingPileSize > 15) {
+                	startingPileSize = 15;
+                    amount = (currentPileSize - startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN                                   ");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");                    
                 }
-                else if (pileSize > 7) {
-                    pileSize = 7;
-                    amount = (currentPileSize - pileSize);
+                else if (startingPileSize > 7) {
+                	startingPileSize = 7;
+                    amount = (currentPileSize - startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN                                   ");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");                    
                 }
-                else if (pileSize > 3) {
-                    pileSize = 3;
-                    amount = (currentPileSize - pileSize);
+                else if (startingPileSize > 3) {
+                	startingPileSize = 3;
+                    amount = (currentPileSize - startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN                                   ");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                 }
-                else if (pileSize > 1) {   // Mario Wins
-                    amount = generator.nextInt((pileSize / 2)) + 1;
-                    pileSize -=1;
+                else if (startingPileSize > 1) {   // Mario Wins
+                    amount = generator.nextInt((startingPileSize / 2)) + 1;
+                    startingPileSize -=1;
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("MARIO'S TURN                                   ");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("Mario reaches into the pile and grabs " + amount + " marble(s)."); 
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
+                    System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("YOU HAVE NO CHOICE BUT TO TAKE THE LAST MARBLE ");
-                    pileSize -= 1;
+                    startingPileSize -= 1;
                     System.out.println("----------------------------------------------------------------------------");
-                    System.out.println("You took " + 1 + " marble(s), from the pile. " + "Current number of marbles: " + pileSize);
+                    System.out.println("You took " + 1 + " marble(s), from the pile. " + "Current number of marbles: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println(" ");
                     System.out.println("----------------------------------------------------------------------------");
@@ -313,29 +313,29 @@ public class GameOfNim
      * reaction to the results of the game.
      */
     public void humanPlayer() {
-        if (pileSize > 1) {		// Human Regular Turn
-            int dumbRange = (pileSize / 2);
+        if (startingPileSize > 1) {		// Human Regular Turn
+            int dumbRange = (startingPileSize / 2);
             System.out.println("----------------------------------------------------------------------------");
             System.out.print("YOUR TURN! Please enter an amount of marbles in between 1 - " + dumbRange + ": ");
             int amount = keyboard.nextInt();
             System.out.println("----------------------------------------------------------------------------");
             System.out.println(" ");
-            if ((amount > pileSize / 2) || (amount < 0)) { 
+            if ((amount > startingPileSize / 2) || (amount < 0)) { 
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("* Hey you know the rules, please enter an amount of marbles in between 1 - " + dumbRange + " *");
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.print("YOUR TURN! Please enter an amount of marbles in between 1 - " + dumbRange + ": ");
                 amount = keyboard.nextInt();
                 System.out.println("----------------------------------------------------------------------------");
-                pileSize -= amount;
-                System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + pileSize); 
+                startingPileSize -= amount;
+                System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + startingPileSize); 
                 System.out.println("----------------------------------------------------------------------------");
             } else {		// Human Wins
-                pileSize -= amount;
-                System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + pileSize); 
+            	startingPileSize -= amount;
+                System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + startingPileSize); 
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println(" ");
-                if (pileSize == 1) {
+                if (startingPileSize == 1) {
                     System.out.println("You're opponent has no choice but to take the last marble in the pile.");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println(" ");
