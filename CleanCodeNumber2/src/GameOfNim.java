@@ -4,7 +4,7 @@ import java.util.Scanner;
  * This my class for the GameOfNim. My constructor for the Game of Nim helps create the pile size the user wishes to start with. 
  * The play method starts the game! The player methods control the nature of each player! There are two possible opponents the 
  * human can play! Luigi, the easier and less intelligent computer player. And Mario, the far superior computer player with a 
- * better strategy to oursmart his human opponents. Enjoy! 
+ * better strategy to outsmart his human opponents. Enjoy! 
  * 
  *
  * @author (Andrew Sychtysz)
@@ -136,6 +136,8 @@ public class GameOfNim
                 System.out.println("────████░░░░░░░███████████▓▓██──────────────────────────────────");
                 System.out.println("──────██████░░░░░░░░░░██▓▓▓▓██──────────────────────────────────");
                 luigiWins++;
+                gamesPlayed++;
+                humanLosses++;
             } else {
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("LUIGI'S TURN:");
@@ -152,6 +154,8 @@ public class GameOfNim
             System.out.println("Luigi screams: Maaarioooooooo!!!! I need your heeEeEElllp!");
             System.out.println("----------------------------------------------------------------------------");
             luigiLosses++;
+            gamesPlayed++;
+            humanWins++;
         }
     }
 
@@ -290,6 +294,8 @@ public class GameOfNim
                     System.out.println("────████░░░░░░░███████████▓▓██");
                     System.out.println("──────██████░░░░░░░░░░██▓▓▓▓██");
                     marioWins++;
+                    gamesPlayed++;
+                    humanLosses++;                    
                 }
             }
         } else {
@@ -301,6 +307,8 @@ public class GameOfNim
             System.out.println("Mario screams: Clearly I am a' not smart' enough to beata' bowsa");
             System.out.println("----------------------------------------------------------------------------");   
             marioLosses++;
+            gamesPlayed++;
+            humanWins++;
         }
     }
     /**
@@ -345,7 +353,7 @@ public class GameOfNim
                     System.out.println("***************** A win has been added to your record! *********************");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("");
-                    humanWins++;
+                   // humanWins++;
                 }    
             }
         } else {
@@ -356,7 +364,7 @@ public class GameOfNim
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("We will send you back to the main menu.");
             System.out.println("----------------------------------------------------------------------------");
-            humanLosses++;          
+          //  humanLosses++;          
         }
     }
     public static String getPlayerRecords() {
