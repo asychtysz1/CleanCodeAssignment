@@ -83,7 +83,7 @@ public class Project5
                 break;
 
                 case 4:
-                System.out.println("Thank you for using my program.  Good bye!");
+                System.out.println("Thank you for Playing our Game!  Good bye!");
                 System.exit(0);
                 break;
 
