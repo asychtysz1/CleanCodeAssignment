@@ -40,9 +40,10 @@ public class Project5
         System.out.println("──████---------------------------------------------------------------------");
         System.out.println("----------------------------------------------------------------------------");
         System.out.println("----------------------------------------------------------------------------");
+        // End of Intro Graphic
+     
         Scanner console = new Scanner(System.in);
         int choice;
-
         do {
             System.out.println();
             System.out.println("\t1. Play a new game of nim!");
@@ -54,6 +55,7 @@ public class Project5
             choice = console.nextInt();
             String endGame;
             switch(choice) {
+            
                 case 1:
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.print("Enter the minimum number of marbles in your pile: ");

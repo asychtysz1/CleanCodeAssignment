@@ -18,7 +18,7 @@ public class GameOfNim
     boolean compMario = generator.nextBoolean(); 
     private int pileSize;
     private int roundNumber = 1;
-    private static int gamesPlayed = 0;
+    private static int gameTotalCount = 0;
     private static int marioWins = 0;
     private static int luigiWins = 0;
     private static int humanWins = 0;
@@ -40,7 +40,7 @@ public class GameOfNim
      *  Also, keeping count of the current round the players are in.
      */    
     public void play() {
-        gamesPlayed ++;
+    	gameTotalCount++;
         System.out.println("Game begins...");
         System.out.println("----------------------------------------------------------------------------");
         System.out.println("Initially there are " + pileSize + " marbles in the pile");
@@ -93,7 +93,7 @@ public class GameOfNim
     /**
      * Luigi, the less intelligent of players. His preference of strategy is to just pick a random number in between the playable range.
      * Also, choosing what his reaction is to the decision of victory. If he wins or loses, he will respond in a certain way.
-     */
+    */
     public void luigi() {
         if (pileSize > 1) {
             System.out.println(" ");
@@ -136,7 +136,6 @@ public class GameOfNim
                 System.out.println("────████░░░░░░░███████████▓▓██──────────────────────────────────");
                 System.out.println("──────██████░░░░░░░░░░██▓▓▓▓██──────────────────────────────────");
                 luigiWins++;
-                gamesPlayed++;
                 humanLosses++;
             } else {
                 System.out.println("----------------------------------------------------------------------------");
@@ -146,19 +145,18 @@ public class GameOfNim
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("Luigi took the marbles. Current size of pile: " + pileSize );
                 System.out.println("----------------------------------------------------------------------------");
-            }
-        } else {
-            System.out.println("----------------------------------------------------------------------------");
-            System.out.println("Luigi screams: Oh noooooOoOoOoOOoOOOO!!!! How did I lose!?");
-            System.out.println("----------------------------------------------------------------------------");
-            System.out.println("Luigi screams: Maaarioooooooo!!!! I need your heeEeEElllp!");
-            System.out.println("----------------------------------------------------------------------------");
-            luigiLosses++;
-            gamesPlayed++;
-            humanWins++;
-        }
+            	}
+        	} else {
+	            System.out.println("----------------------------------------------------------------------------");
+	            System.out.println("Luigi screams: Oh noooooOoOoOoOOoOOOO!!!! How did I lose!?");
+	            System.out.println("----------------------------------------------------------------------------");
+	            System.out.println("Luigi screams: Maaarioooooooo!!!! I need your heeEeEElllp!");
+	            System.out.println("----------------------------------------------------------------------------");
+	            luigiLosses++;
+	            humanWins++;
+        	}
     }
-
+    
     /**
      * Mario, the far more intelligent of players. His strategy, is to make the size of marbles equal a power of 2 - 1. For example, 3, 7, 15, 24....
      * Also, choosing what his reaction is to the decision of victory. If he wins or loses, he will respond in a certain way.
@@ -294,7 +292,6 @@ public class GameOfNim
                     System.out.println("────████░░░░░░░███████████▓▓██");
                     System.out.println("──────██████░░░░░░░░░░██▓▓▓▓██");
                     marioWins++;
-                    gamesPlayed++;
                     humanLosses++;                    
                 }
             }
@@ -307,10 +304,10 @@ public class GameOfNim
             System.out.println("Mario screams: Clearly I am a' not smart' enough to beata' bowsa");
             System.out.println("----------------------------------------------------------------------------");   
             marioLosses++;
-            gamesPlayed++;
             humanWins++;
         }
     }
+    
     /**
      * The humanPlayer method is essentially the controller for the user. The humanPlayer method is what
      * allows someone to play the game. It will ensure the user stays within the playable range, and it's 
@@ -353,7 +350,7 @@ public class GameOfNim
                     System.out.println("***************** A win has been added to your record! *********************");
                     System.out.println("----------------------------------------------------------------------------");
                     System.out.println("");
-                   // humanWins++;
+                    humanWins++;
                 }    
             }
         } else {
@@ -363,17 +360,16 @@ public class GameOfNim
             System.out.println("A loss has been added to your record. ");
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("We will send you back to the main menu.");
-            System.out.println("----------------------------------------------------------------------------");
-          //  humanLosses++;          
+            System.out.println("----------------------------------------------------------------------------");          
         }
     }
+    
     public static String getPlayerRecords() {
         String s = "";
-        s += "You have completed " + gamesPlayed + " matches during this session!\n"; 
+        s += "You have completed " + gameTotalCount + " matches during this session!\n"; 
         s += "You have won " + humanWins + " match(es) and you have lost " + humanLosses + " match(es).\n";
         s += "Luigi has won " + luigiWins + " match(es) and he has lost " + luigiLosses + " match(es).\n";
         s += "Mario has won " + marioWins + " match(es) and he has lost " + marioLosses + " match(es).\n";
-        
         return s;
     }
 }    
