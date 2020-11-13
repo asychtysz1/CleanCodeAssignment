@@ -11,20 +11,21 @@ import java.util.Scanner;
  * @version (Version 4 4/13/2019)
  */
 public class GameOfNim
-{
-    Random generator = new Random();
+{										// Instance Variables
+    Random generator = new Random();				
     Scanner keyboard = new Scanner(System.in);
     boolean compFirst = generator.nextBoolean();
     boolean compMario = generator.nextBoolean(); 
     private int pileSize;
-    private int roundNumber = 1;
+    private int roundNumber = 1;	    // Static Variables for Record Calculations
     private static int gameTotalCount = 0;
     private static int marioWins = 0;
     private static int luigiWins = 0;
     private static int humanWins = 0;
     private static int marioLosses = 0;
     private static int luigiLosses = 0;
-    private static int humanLosses = 0;
+    private static int humanLosses = 0; // End of Instance Variables
+   
     /**
      * Constructor for objects of class GameOfNim
      * @param min The minimum amount of marbles the size can possibly be
@@ -100,7 +101,7 @@ public class GameOfNim
             int dumbRange = (pileSize / 2);
             int amount = generator.nextInt(dumbRange) + 1;          
             pileSize -= amount;
-            if (pileSize == 1) {
+            if (pileSize == 1) {   // If Luigi Wins
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("LUIGI'S  TURN: Luigi reaches into the pile and grabs " + amount + " marble(s).");
                 System.out.println("----------------------------------------------------------------------------");
@@ -137,7 +138,7 @@ public class GameOfNim
                 System.out.println("──────██████░░░░░░░░░░██▓▓▓▓██──────────────────────────────────");
                 luigiWins++;
                 humanLosses++;
-            } else {
+            } else { 			  // Luigi's regular turn
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("LUIGI'S TURN:");
                 System.out.println("----------------------------------------------------------------------------");
@@ -146,14 +147,13 @@ public class GameOfNim
                 System.out.println("Luigi took the marbles. Current size of pile: " + pileSize );
                 System.out.println("----------------------------------------------------------------------------");
             	}
-        	} else {
+        	} else {			  // Luigi Loses
 	            System.out.println("----------------------------------------------------------------------------");
 	            System.out.println("Luigi screams: Oh noooooOoOoOoOOoOOOO!!!! How did I lose!?");
 	            System.out.println("----------------------------------------------------------------------------");
 	            System.out.println("Luigi screams: Maaarioooooooo!!!! I need your heeEeEElllp!");
 	            System.out.println("----------------------------------------------------------------------------");
 	            luigiLosses++;
-	            humanWins++;
         	}
     }
     
@@ -254,7 +254,7 @@ public class GameOfNim
                     System.out.println("Mario took the marbles. Current size of pile: " + pileSize);
                     System.out.println("----------------------------------------------------------------------------");
                 }
-                else if (pileSize > 1) {
+                else if (pileSize > 1) {   // Mario Wins
                     amount = generator.nextInt((pileSize / 2)) + 1;
                     pileSize -=1;
                     System.out.println("----------------------------------------------------------------------------");
@@ -295,7 +295,7 @@ public class GameOfNim
                     humanLosses++;                    
                 }
             }
-        } else {
+        } else {				// Mario Loses
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("Mario screams: Wahhhahhhhhhhhhahaaaaaaaaaah! ");
             System.out.println("----------------------------------------------------------------------------");
@@ -304,7 +304,6 @@ public class GameOfNim
             System.out.println("Mario screams: Clearly I am a' not smart' enough to beata' bowsa");
             System.out.println("----------------------------------------------------------------------------");   
             marioLosses++;
-            humanWins++;
         }
     }
     
@@ -314,7 +313,7 @@ public class GameOfNim
      * reaction to the results of the game.
      */
     public void humanPlayer() {
-        if (pileSize > 1) {
+        if (pileSize > 1) {	// Human Regular Turn
             int dumbRange = (pileSize / 2);
             System.out.println("----------------------------------------------------------------------------");
             System.out.print("YOUR TURN! Please enter an amount of marbles in between 1 - " + dumbRange + ": ");
@@ -331,7 +330,7 @@ public class GameOfNim
                 pileSize -= amount;
                 System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + pileSize); 
                 System.out.println("----------------------------------------------------------------------------");
-            } else {
+            } else {		// Human Wins
                 pileSize -= amount;
                 System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + pileSize); 
                 System.out.println("----------------------------------------------------------------------------");
@@ -353,7 +352,7 @@ public class GameOfNim
                     humanWins++;
                 }    
             }
-        } else {
+        } else { // Human loses
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("You've been outsmarted by one of the Mario Brothers...");
             System.out.println("----------------------------------------------------------------------------");
@@ -364,6 +363,10 @@ public class GameOfNim
         }
     }
     
+    /**
+     * Print String Method for Game Records
+     * return s String that contains the Records
+     */
     public static String getPlayerRecords() {
         String s = "";
         s += "You have completed " + gameTotalCount + " matches during this session!\n"; 
