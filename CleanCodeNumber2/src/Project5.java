@@ -79,7 +79,7 @@ public class Project5
                 break;
                 
                 case 3:
-                System.out.println(GameOfNim.getPlayerRecords());
+                System.out.println(GameOfNim.printGameRecords());
                 break;
 
                 case 4:

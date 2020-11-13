@@ -367,7 +367,7 @@ public class GameOfNim
      * Print String Method for Game Records
      * return s String that contains the Records
      */
-    public static String getPlayerRecords() {
+    public static String printGameRecords() {
         String s = "";
         s += "You have completed " + gameTotalCount + " matches during this session!\n"; 
         s += "You have won " + humanWins + " match(es) and you have lost " + humanLosses + " match(es).\n";
