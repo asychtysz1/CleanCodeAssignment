@@ -6,18 +6,17 @@ import java.util.Scanner;
  * human can play! Luigi, the easier and less intelligent computer player. And Mario, the far superior computer player with a 
  * better strategy to outsmart his human opponents. Enjoy! 
  * 
- *
  * @author (Andrew Sychtysz)
- * @version (Version 4 4/13/2019)
+ * @version (Version 5 11/16/2020)
  */
 public class GameOfNim
-{										// Instance Variables
+{ // Instance Variables
     Random generator = new Random();				
     Scanner keyboard = new Scanner(System.in);
-    boolean compFirst = generator.nextBoolean();	// Boolean to see if the Computer Player goes first or not
-    boolean compMario = generator.nextBoolean(); 	// Boolean to see if the Computer Player is Mario or not
+    boolean compFirst = generator.nextBoolean(); // Boolean to see if the Computer Player goes first or not
+    boolean compMario = generator.nextBoolean(); // Boolean to see if the Computer Player is Mario or not
     private int startingPileSize;
-    private int roundNumber = 1;	    // Static Variables for Record Calculations
+    private int roundNumber = 1; // Static Variables for Record Calculations
     private static int gameTotalCount = 0;
     private static int marioWins = 0;
     private static int luigiWins = 0;
@@ -254,7 +253,7 @@ public class GameOfNim
                     System.out.println("Mario took the marbles. Current size of pile: " + startingPileSize);
                     System.out.println("----------------------------------------------------------------------------");
                 }
-                else if (startingPileSize > 1) {   // Mario Wins
+                else if (startingPileSize > 1) { // Mario Wins
                     amount = generator.nextInt((startingPileSize / 2)) + 1;
                     startingPileSize -=1;
                     System.out.println("----------------------------------------------------------------------------");
@@ -295,7 +294,7 @@ public class GameOfNim
                     humanLosses++;                    
                 }
             }
-        } else {	// Mario Loses
+        } else { // Mario Loses
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("Mario screams: Wahhhahhhhhhhhhahaaaaaaaaaah! ");
             System.out.println("----------------------------------------------------------------------------");
@@ -313,7 +312,7 @@ public class GameOfNim
      * reaction to the results of the game.
      */
     public void humanPlayer() {
-        if (startingPileSize > 1) {		// Human Regular Turn
+        if (startingPileSize > 1) { // Human Regular Turn
             int dumbRange = (startingPileSize / 2);
             System.out.println("----------------------------------------------------------------------------");
             System.out.print("YOUR TURN! Please enter an amount of marbles in between 1 - " + dumbRange + ": ");
@@ -330,7 +329,7 @@ public class GameOfNim
                 startingPileSize -= amount;
                 System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + startingPileSize); 
                 System.out.println("----------------------------------------------------------------------------");
-            } else {		// Human Wins
+            } else { // Human Wins
             	startingPileSize -= amount;
                 System.out.println("You took " + amount + " marble(s), from the pile. " + "Current number of marbles: " + startingPileSize); 
                 System.out.println("----------------------------------------------------------------------------");
@@ -375,4 +374,4 @@ public class GameOfNim
         s += "Mario has won " + marioWins + " match(es) and he has lost " + marioLosses + " match(es).\n";
         return s;
     }
-}    
+} // End of GameOfNim Class
