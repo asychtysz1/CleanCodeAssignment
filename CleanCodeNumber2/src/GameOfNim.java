@@ -137,7 +137,7 @@ public class GameOfNim
                 System.out.println("──────██████░░░░░░░░░░██▓▓▓▓██──────────────────────────────────");
                 luigiWins++;
                 humanLosses++;
-            } else { 			  // Luigi's regular turn
+            } else { // Luigi's regular turn
                 System.out.println("----------------------------------------------------------------------------");
                 System.out.println("LUIGI'S TURN:");
                 System.out.println("----------------------------------------------------------------------------");
@@ -146,7 +146,7 @@ public class GameOfNim
                 System.out.println("Luigi took the marbles. Current size of pile: " + startingPileSize );
                 System.out.println("----------------------------------------------------------------------------");
             	}
-        	} else {			  // Luigi Loses
+        	} else { // Luigi Loses
 	            System.out.println("----------------------------------------------------------------------------");
 	            System.out.println("Luigi screams: Oh noooooOoOoOoOOoOOOO!!!! How did I lose!?");
 	            System.out.println("----------------------------------------------------------------------------");
